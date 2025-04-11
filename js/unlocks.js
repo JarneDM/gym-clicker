@@ -3,7 +3,9 @@ import items from "./list.js";
 export default function renderUnlocks(itemsDiv) {
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
 
-  itemsDiv.innerHTML = items
+  let sortedItems = [...items].sort((a, b) => a.cost - b.cost);
+
+  itemsDiv.innerHTML = sortedItems
     .map((item) => {
       const isUnlocked = unlockedItems.includes(item.name);
       return `
