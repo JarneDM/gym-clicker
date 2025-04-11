@@ -1,0 +1,130 @@
+{
+  "items": [
+    { "name": "Treadmill", "cost": 10, "unlocked": false, "mps": 2 },
+    { "name": "Benchpress", "cost": 100, "unlocked": false, "mps": 3 },
+    { "name": "Protein shake", "cost": 1000, "unlocked": false, "mps": 5 },
+    { "name": "Personal trainer", "cost": 10000, "unlocked": false, "mps": 20 },
+    { "name": "Gym", "cost": 100000, "unlocked": false, "mps": 50 },
+    { "name": "Chalk", "cost": 50, "unlocked": false, "mps": 0.5 },
+    { "name": "Belt", "cost": 500, "unlocked": false, "mps": 2 },
+    { "name": "Straps", "cost": 750, "unlocked": false, "mps": 2.5 },
+    { "name": "Wrist wraps", "cost": 600, "unlocked": false, "mps": 2 },
+    { "name": "Knee wraps", "cost": 800, "unlocked": false, "mps": 2.5 },
+    { "name": "Pre-workout", "cost": 1500, "unlocked": false, "mps": 7 },
+    { "name": "Protein powder", "cost": 2000, "unlocked": false, "mps": 8 },
+    { "name": "Creatine", "cost": 2500, "unlocked": false, "mps": 10 },
+    { "name": "Cardio", "cost": 3000, "unlocked": false, "mps": 5 },
+    { "name": "Deadlift", "cost": 5000, "unlocked": false, "mps": 15 },
+    { "name": "Bench", "cost": 6000, "unlocked": false, "mps": 12 },
+    { "name": "Squat", "cost": 7000, "unlocked": false, "mps": 18 },
+    { "name": "Steroids", "cost": 20000, "unlocked": false, "mps": 50 },
+    { "name": "Bicep curl", "cost": 3000, "unlocked": false, "mps": 6 },
+    { "name": "Sauna", "cost": 8000, "unlocked": false, "mps": 5 },
+    { "name": "Energy drinks", "cost": 1200, "unlocked": false, "mps": 3 },
+    { "name": "Gymbro", "cost": 15000, "unlocked": false, "mps": 25 },
+    { "name": "OldCA clothes", "cost": 5000, "unlocked": false, "mps": 10 },
+    { "name": "Dumbbells", "cost": 4000, "unlocked": false, "mps": 8 },
+    { "name": "Kettlebell", "cost": 3500, "unlocked": false, "mps": 7 },
+    { "name": "Barbell", "cost": 4500, "unlocked": false, "mps": 9 },
+    { "name": "Resistance bands", "cost": 2000, "unlocked": false, "mps": 4 },
+    { "name": "Massage gun", "cost": 10000, "unlocked": false, "mps": 5 },
+    { "name": "Lifting shoes", "cost": 7000, "unlocked": false, "mps": 6 },
+    { "name": "Posing mirror", "cost": 5000, "unlocked": false, "mps": 4 },
+    { "name": "Home gym setup", "cost": 50000, "unlocked": false, "mps": 30 },
+    { "name": "Girlfriend", "cost": 1000000, "unlocked": false, "mps": 100 }
+  ],
+  "skills": [
+    { "name": "Cardio Mastery", "effect": "+10% passive mps", "unlocked": false },
+    { "name": "Strength Focus", "effect": "+20% click power", "unlocked": false },
+    { "name": "Discipline", "effect": "+5% mps per day played", "unlocked": false },
+    { "name": "Recovery Boost", "effect": "Events last 2s longer", "unlocked": false }
+  ],
+  "achievements": [
+    { "name": "First Rep", "condition": "Earn 1 rep", "unlocked": false },
+    { "name": "Push-up Addict", "condition": "Earn 1,000 reps", "unlocked": false },
+    { "name": "Gym Owner", "condition": "Buy 10 buildings", "unlocked": false },
+    { "name": "Protein Enthusiast", "condition": "Buy 5 Protein Shakes", "unlocked": false },
+    { "name": "Beast Mode", "condition": "Reach 1,000 mps", "unlocked": false }
+  ],
+  "upgrades": [
+    { "name": "Better Shoes", "effect": "Double click power", "cost": 500, "purchased": false },
+    { "name": "Gym Membership", "effect": "Unlock new buildings", "cost": 1000, "purchased": false },
+    { "name": "BCAA Boost", "effect": "+10% global mps", "cost": 3000, "purchased": false },
+    { "name": "Advanced Program", "effect": "All buildings +5% output", "cost": 5000, "purchased": false }
+  ],
+  "events": [
+    { "name": "Motivational Surge", "effect": "×2 mps for 30 seconds", "active": false },
+    { "name": "Personal Record!", "effect": "×3 click power for 10 seconds", "active": false },
+    { "name": "Gym Partner Visit", "effect": "+10 reps per click for 20 seconds", "active": false },
+    { "name": "Fatigue", "effect": "-50% mps for 15 seconds", "active": false }
+  ],
+
+  "skillTrees": {
+    "power": {
+      "name": "Power Tree",
+      "skills": [
+        {
+          "id": "p1",
+          "name": "Iron Grip",
+          "effect": "+10% click power",
+          "requires": [],
+          "unlocked": false
+        },
+        {
+          "id": "p2",
+          "name": "Explosive Strength",
+          "effect": "+25% click power",
+          "requires": ["p1"],
+          "unlocked": false
+        },
+        {
+          "id": "p3",
+          "name": "Muscle Memory",
+          "effect": "Clicks give +0.5 mps for 10s",
+          "requires": ["p2"],
+          "unlocked": false
+        },
+        {
+          "id": "p4",
+          "name": "Alpha Gains",
+          "effect": "+50% click power when above 1,000 reps",
+          "requires": ["p3"],
+          "unlocked": false
+        }
+      ]
+    },
+    "endurance": {
+      "name": "Endurance Tree",
+      "skills": [
+        {
+          "id": "e1",
+          "name": "Jogger's Focus",
+          "effect": "+5% passive mps",
+          "requires": [],
+          "unlocked": false
+        },
+        {
+          "id": "e2",
+          "name": "Long-Distance Beast",
+          "effect": "+15% passive mps",
+          "requires": ["e1"],
+          "unlocked": false
+        },
+        {
+          "id": "e3",
+          "name": "Zen Mode",
+          "effect": "Events last 50% longer",
+          "requires": ["e2"],
+          "unlocked": false
+        },
+        {
+          "id": "e4",
+          "name": "Calm Before the PR",
+          "effect": "+100% mps for 5s after every 2 minutes",
+          "requires": ["e3"],
+          "unlocked": false
+        }
+      ]
+    }
+  }
+}
