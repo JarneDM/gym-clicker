@@ -17,7 +17,6 @@ if (savedCount) {
 btn.addEventListener("click", () => {
   addMuscles();
 });
-
 addMusclesPerSecond();
 
 renderUnlocks($items);

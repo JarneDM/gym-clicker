@@ -39,7 +39,10 @@ export function unlockItem(button) {
   const mps = items.find((item) => item.name === name).mps;
   const item = items.find((item) => item.name === name);
 
-  const MPS = localStorage.getItem("msuclePerSeconds") || 1;
+  const MPS = localStorage.getItem("msuclePerSeconds");
+  if (!MPS) {
+    localStorage.setItem("musclePerSecond", 0);
+  }
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
 
   const counter = document.querySelector("#counter");
@@ -63,8 +66,9 @@ export function unlockItem(button) {
   localStorage.setItem("unlockedItems", JSON.stringify(updatedUnlockedItems));
   counter.textContent = counterValue - item.cost;
   localStorage.setItem("muscleCount", counterValue - item.cost);
-  localStorage.setItem("musclePerSecond", parseFloat(MPS) + mps);
-
+  if (MPS) {
+    localStorage.setItem("musclePerSecond", parseFloat(MPS) + parseFloat(mps, 10));
+  }
   button.style.display = "none";
   item.unlocked = true;
 }
