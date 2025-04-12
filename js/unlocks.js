@@ -1,4 +1,4 @@
-import items from "./list.js";
+import items from "./data.js";
 
 export default function renderUnlocks(itemsDiv) {
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
@@ -14,7 +14,7 @@ export default function renderUnlocks(itemsDiv) {
           <br>
           <span class="item-cost">Cost: ${item.cost}</span>
           <br>
-          <span class="item-mpc">Muscle Per Click: ${item.mpc}</span>
+          <span class="item-mps">Muscle Per Second: ${item.mps}</span>
           <button 
             class="unlock-btn" 
             data-itemname="${item.name}"
@@ -36,10 +36,10 @@ export default function renderUnlocks(itemsDiv) {
 export function unlockItem(button) {
   const name = button.dataset.itemname;
 
-  const mpc = items.find((item) => item.name === name).mpc;
+  const mps = items.find((item) => item.name === name).mps;
   const item = items.find((item) => item.name === name);
 
-  const MPC = localStorage.getItem("MusclePerClick") || 1;
+  const MPS = localStorage.getItem("msuclePerSeconds") || 1;
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
 
   const counter = document.querySelector("#counter");
@@ -63,7 +63,7 @@ export function unlockItem(button) {
   localStorage.setItem("unlockedItems", JSON.stringify(updatedUnlockedItems));
   counter.textContent = counterValue - item.cost;
   localStorage.setItem("muscleCount", counterValue - item.cost);
-  localStorage.setItem("MusclePerClick", parseFloat(MPC) + mpc);
+  localStorage.setItem("musclePerSecond", parseFloat(MPS) + mps);
 
   button.style.display = "none";
   item.unlocked = true;

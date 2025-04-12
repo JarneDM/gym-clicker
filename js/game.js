@@ -1,5 +1,5 @@
 // imports \\
-import addMuscles from "./muscles.js";
+import addMuscles, { addMusclesPerSecond } from "./muscles.js";
 import renderUnlocks from "./unlocks.js";
 
 // variables \\
@@ -17,5 +17,7 @@ if (savedCount) {
 btn.addEventListener("click", () => {
   addMuscles();
 });
+
+addMusclesPerSecond();
 
 renderUnlocks($items);
