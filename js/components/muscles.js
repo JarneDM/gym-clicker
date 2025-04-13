@@ -1,4 +1,5 @@
 const counter = document.querySelector("#counter");
+const reps = document.querySelector("#reps");
 
 export default function addMuscles() {
   const currentCount = parseFloat(localStorage.getItem("muscleCount") || 0);
@@ -18,5 +19,18 @@ export function addMusclesPerSecond() {
 
   setTimeout(() => {
     addMusclesPerSecond();
+  }, 1000);
+}
+
+export function addRepsPerSecond() {
+  const RPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+  const currentCount = parseFloat(localStorage.getItem("repCount") || 0);
+  const newValue = currentCount + RPS;
+
+  reps.innerText = newValue.toFixed(2).toLocaleString();
+  localStorage.setItem("repCount", newValue.toFixed(2));
+
+  setTimeout(() => {
+    addRepsPerSecond();
   }, 1000);
 }

@@ -12,11 +12,11 @@ export default function renderUnlocks(itemsDiv) {
       return `
       
         <div>
-          <span class="item-name">${item.name}</span>
+          <span class="item-name name">${item.name}</span>
           <br>
-          <span class="item-cost">Cost: ${cost}</span>
+          <span class="item-cost cost">Cost: ${cost}</span>
           <br>
-          <span class="item-mps">Muscle Per Second: ${item.mps}</span>
+          <span class="item-mps mps">Muscle Per Second: ${item.mps}</span>
           <button 
             class="unlock-btn" 
             data-itemname="${item.name}"
