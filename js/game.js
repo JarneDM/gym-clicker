@@ -1,11 +1,14 @@
 // imports \\
 import addMuscles, { addMusclesPerSecond } from "./components/muscles.js";
+import renderBuildings from "./components/unlocks/buildings.js";
 import renderUnlocks from "./components/unlocks/items.js";
 
 // variables \\
 const btn = document.querySelector("#click-btn");
 const counter = document.querySelector("#counter");
+
 const $items = document.querySelector("#items");
+const $buildings = document.querySelector("#buildings");
 
 // Load saved count when page loads
 const savedCount = localStorage.getItem("muscleCount");
@@ -20,3 +23,4 @@ btn.addEventListener("click", () => {
 addMusclesPerSecond();
 
 renderUnlocks($items);
+renderBuildings($buildings);
