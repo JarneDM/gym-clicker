@@ -40,6 +40,22 @@ export const buildings = [
   { name: "Elite Gym", rps: 10, cost: 25000, unlocked: false },
 ];
 
+export const personel = [
+  { name: "Personal Trainer", rps: 0.5, cost: 100, unlocked: false },
+  { name: "Nutrition Coach", rps: 1, cost: 500, unlocked: false },
+  { name: "Physiotherapist", rps: 2, cost: 2000, unlocked: false },
+  { name: "Sports Psychologist", rps: 3, cost: 5000, unlocked: false },
+  { name: "Strength Coach", rps: 5, cost: 10000, unlocked: false },
+  { name: "Cardio Coach", rps: 7, cost: 20000, unlocked: false },
+  { name: "Flexibility Coach", rps: 10, cost: 50000, unlocked: false },
+  { name: "Recovery Coach", rps: 15, cost: 100000, unlocked: false },
+  { name: "Yoga Instructor", rps: 20, cost: 200000, unlocked: false },
+  { name: "Pilates Instructor", rps: 25, cost: 500000, unlocked: false },
+  { name: "Dance Instructor", rps: 30, cost: 1000000, unlocked: false },
+  { name: "Martial Arts Instructor", rps: 50, cost: 2000000, unlocked: false },
+  { name: "Sports Coach", rps: 100, cost: 5000000, unlocked: false },
+];
+
 export const skills = [
   { name: "Cardio Mastery", effect: "+10% passive mps", unlocked: false },
   { name: "Strength Focus", effect: "+20% click power", unlocked: false },
