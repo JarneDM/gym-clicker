@@ -13,7 +13,7 @@ export function addMusclesPerSecond() {
   const currentCount = parseFloat(localStorage.getItem("muscleCount") || 0);
   const newValue = currentCount + MPS;
 
-  counter.innerText = newValue;
+  counter.innerText = newValue.toLocaleString();
   localStorage.setItem("muscleCount", newValue);
 
   setTimeout(() => {

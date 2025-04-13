@@ -8,12 +8,13 @@ export default function renderUnlocks(itemsDiv) {
   itemsDiv.innerHTML = sortedItems
     .map((item) => {
       const isUnlocked = unlockedItems.includes(item.name);
+      const cost = item.cost.toLocaleString();
       return `
       
         <div>
           <span class="item-name">${item.name}</span>
           <br>
-          <span class="item-cost">Cost: ${item.cost}</span>
+          <span class="item-cost">Cost: ${cost}</span>
           <br>
           <span class="item-mps">Muscle Per Second: ${item.mps}</span>
           <button 
