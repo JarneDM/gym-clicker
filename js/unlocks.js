@@ -35,40 +35,34 @@ export default function renderUnlocks(itemsDiv) {
 
 export function unlockItem(button) {
   const name = button.dataset.itemname;
-
-  const mps = items.find((item) => item.name === name).mps;
   const item = items.find((item) => item.name === name);
 
-  const MPS = localStorage.getItem("msuclePerSeconds");
-  if (!MPS) {
-    localStorage.setItem("musclePerSecond", 0);
-  }
+  // current values
+  const currentMPS = parseFloat(localStorage.getItem("musclePerSecond") || 0);
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
+  const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
 
-  const counter = document.querySelector("#counter");
-
-  const counterValue = parseFloat(counter.textContent, 10);
-
-  // check if already unlocked
   if (unlockedItems.includes(name)) {
     alert("Item already unlocked!");
     return;
   }
 
-  // check cost
   if (counterValue < item.cost) {
     alert("Not enough muscles!");
     return;
   }
 
-  // unlock the item
+  // unlock item
   const updatedUnlockedItems = [...unlockedItems, name];
   localStorage.setItem("unlockedItems", JSON.stringify(updatedUnlockedItems));
-  counter.textContent = counterValue - item.cost;
-  localStorage.setItem("muscleCount", counterValue - item.cost);
-  if (MPS) {
-    localStorage.setItem("musclePerSecond", parseFloat(MPS) + parseFloat(mps, 10));
-  }
+
+  const newMuscleCount = counterValue - item.cost;
+  localStorage.setItem("muscleCount", newMuscleCount);
+  document.querySelector("#counter").textContent = newMuscleCount;
+
+  const newMPS = currentMPS + item.mps;
+  localStorage.setItem("musclePerSecond", newMPS);
+
   button.style.display = "none";
   item.unlocked = true;
 }
