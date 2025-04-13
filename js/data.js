@@ -33,6 +33,13 @@ const items = [
   { name: "Girlfriend", cost: 1000000, unlocked: false, mps: 100 },
 ];
 
+export const buildings = [
+  { name: "Basic Gym", rps: 0.2, cost: 50, unlocked: false },
+  { name: "Commercial Gym", rps: 3, cost: 1000, unlocked: false },
+  { name: "Advanced Gym", rps: 5, cost: 4000, unlocked: false },
+  { name: "Elite Gym", rps: 10, cost: 25000, unlocked: false },
+];
+
 export const skills = [
   { name: "Cardio Mastery", effect: "+10% passive mps", unlocked: false },
   { name: "Strength Focus", effect: "+20% click power", unlocked: false },
