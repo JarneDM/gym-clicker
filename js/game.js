@@ -1,6 +1,6 @@
 // imports \\
-import addMuscles, { addMusclesPerSecond } from "./muscles.js";
-import renderUnlocks from "./unlocks.js";
+import addMuscles, { addMusclesPerSecond } from "./components/muscles.js";
+import renderUnlocks from "./components/unlocks/items.js";
 
 // variables \\
 const btn = document.querySelector("#click-btn");

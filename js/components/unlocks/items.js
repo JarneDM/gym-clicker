@@ -1,4 +1,4 @@
-import items from "./data.js";
+import items from "../../data/data.js";
 
 export default function renderUnlocks(itemsDiv) {
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
@@ -9,6 +9,7 @@ export default function renderUnlocks(itemsDiv) {
     .map((item) => {
       const isUnlocked = unlockedItems.includes(item.name);
       return `
+      
         <div>
           <span class="item-name">${item.name}</span>
           <br>
