@@ -66,6 +66,7 @@ export const personel = [
   { name: "Sports Coach", rps: 100, cost: 5000000, unlocked: false, level: 0, costMultiplier: 2.7 },
 ];
 
+// THE COST OF SKILLS IS IN REPS
 export const skills = [
   {
     name: "Cardio Mastery",
@@ -222,6 +223,7 @@ export const achievements = [
   { name: "Flexibility Master", condition: "Reach 100,000 flexibility", unlocked: false },
 ];
 
+// COST IS IN REPS
 export const upgrades = [
   { name: "Better Shoes", effect: "Double click power", cost: 500, purchased: false },
   { name: "Gym Membership", effect: "Unlock new buildings", cost: 1000, purchased: false },
