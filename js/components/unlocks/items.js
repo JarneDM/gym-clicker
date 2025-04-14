@@ -1,69 +1,20 @@
 import items from "../../data/data.js";
 
-export default function renderUnlocks(itemsDiv) {
-  const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
-
-  let sortedItems = [...items].sort((a, b) => a.cost - b.cost);
-
-  itemsDiv.innerHTML = sortedItems
-    .map((item) => {
-      const isUnlocked = unlockedItems.includes(item.name);
-      const cost = item.cost.toLocaleString();
-      return `
-      
-        <div>
-          <span class="item-name name">${item.name}</span>
-          <br>
-          <span class="item-cost cost">Cost: ${cost}</span>
-          <br>
-          <span class="item-mps mps">Muscle Per Second: ${item.mps}</span>
-          <button 
-            class="unlock-btn" 
-            data-itemname="${item.name}"
-            ${isUnlocked ? 'style="display: none;"' : ""}
-          >
-            Unlock
-          </button>
-        </div>
-      `;
-    })
-    .join("");
-
-  // add click listeners only to visible buttons
-  itemsDiv.querySelectorAll(".unlock-btn:not([style*='display: none'])").forEach((button) => {
-    button.addEventListener("click", () => unlockItem(button));
-  });
-}
-
 export function unlockItem(button) {
   const name = button.dataset.itemname;
   const item = items.find((item) => item.name === name);
 
-  // current values
   const currentMPS = parseFloat(localStorage.getItem("musclePerSecond") || 0);
   const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
   const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
 
-  if (unlockedItems.includes(name)) {
-    alert("Item already unlocked!");
-    return;
-  }
+  if (unlockedItems.includes(name)) return alert("Item already unlocked!");
+  if (counterValue < item.cost) return alert("Not enough muscles!");
 
-  if (counterValue < item.cost) {
-    alert("Not enough muscles!");
-    return;
-  }
-
-  // unlock item
-  const updatedUnlockedItems = [...unlockedItems, name];
-  localStorage.setItem("unlockedItems", JSON.stringify(updatedUnlockedItems));
-
-  const newMuscleCount = counterValue - item.cost;
-  localStorage.setItem("muscleCount", newMuscleCount);
-  document.querySelector("#counter").textContent = newMuscleCount;
-
-  const newMPS = currentMPS + item.mps;
-  localStorage.setItem("musclePerSecond", newMPS);
+  localStorage.setItem("unlockedItems", JSON.stringify([...unlockedItems, name]));
+  localStorage.setItem("muscleCount", counterValue - item.cost);
+  localStorage.setItem("musclePerSecond", currentMPS + item.mps);
+  document.querySelector("#counter").textContent = counterValue - item.cost;
 
   button.style.display = "none";
   item.unlocked = true;
