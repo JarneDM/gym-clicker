@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Clickr</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
@@ -20,15 +21,17 @@
     <p><b>Reps:</b> <span id="reps"></span></p>
 
     <div class="item-container">
-        <h2>Items</h2>
-        <div class="items" id="items"></div>
-        <h2>Buildings</h2>
-        <div class="buildings" id="buildings"></div>
+        <h2 class="menu">Items</h2>
+        <div class="items content" id="items"></div>
+        <h2 class="menu">Buildings</h2>
+        <div class="buildings content" id="buildings"></div>
     </div>
 
 
     <script src="./js/game.js" type="module"></script>
     <script src="./js/unlocks.js" type="module"></script>
+
+    <script src="./js/collapsible.js"></script>
 </body>
 
 </html>
