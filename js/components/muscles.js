@@ -16,6 +16,7 @@ export function addMusclesPerSecond() {
 
   counter.innerText = newValue.toLocaleString();
   localStorage.setItem("muscleCount", newValue);
+  document.title = `Gym Clickr | ${newValue.toLocaleString()} Muscle`;
 
   setTimeout(() => {
     addMusclesPerSecond();
