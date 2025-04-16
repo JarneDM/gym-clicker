@@ -242,6 +242,7 @@ export const upgrades = [
   { name: "Legendary Coach", effect: "+200% personal trainer output", cost: 20000000, purchased: false },
 ];
 
+// THE POWER IS IN MUSCLES AND THE CARDIO AND FLEXIBILITY ARE IN REPS
 export const skillTrees = {
   power: [
     { name: "Powerlifting", effect: "+10% power", unlocked: false },

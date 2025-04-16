@@ -1,37 +1,34 @@
 import { buildings } from "../../data/data.js";
 
-export default function renderBuildings(buildingDiv) {
-  const unlockedBuildings = JSON.parse(localStorage.getItem("unlockedBuildings")) || [];
+export default class Building {
+  constructor(classname, { name, cost, rps = 0 }) {
+    this.name = name;
+    this.cost = cost;
+    this.rps = rps;
+    this.classname = classname;
+  }
 
-  let sortedBuildings = [...buildings].sort((a, b) => a.cost - b.cost);
+  render() {
+    const unlockBuildings = JSON.parse(localStorage.getItem("unlockedBuildings")) || [];
+    const isUnlocked = unlockBuildings.includes(this.name);
 
-  buildingDiv.innerHTML = sortedBuildings
-    .map((building) => {
-      const isUnlocked = unlockedBuildings.includes(building.name);
-      const cost = building.cost.toLocaleString();
-      return `
-        <div>
-          <span class="building-name name">${building.name}</span>
-          <br>
-          <span class="building-cost cost">Cost: ${cost}</span>
-          <br>
-          <span class="building-mps mps">Reps Per Second: ${building.rps}</span>
-          <button 
-            class="unlock-btn" 
-            data-buildingname="${building.name}"
-            ${isUnlocked ? 'style="display: none;"' : ""}
-          >
-            Unlock
-          </button>
-        </div>
-      `;
-    })
-    .join("");
-
-  // add click listeners only to visible buttons
-  buildingDiv.querySelectorAll(".unlock-btn:not([style*='display: none'])").forEach((button) => {
-    button.addEventListener("click", () => unlockBuilding(button));
-  });
+    return `
+      <div class="${this.classname}">
+        <span class="building-name name">${this.name}</span>
+        <br>
+        <span class="building-cost cost">Cost: ${this.cost.toLocaleString()}</span>
+        <br>
+        <span class="building-rps rps">Reps Per Second: ${this.rps}</span>
+        <button 
+          class="unlock-btn" 
+          data-buildingname="${this.name}"
+          ${isUnlocked ? 'style="display: none;"' : ""}
+        >
+          Unlock
+        </button>
+      </div>
+    `;
+  }
 }
 
 export function unlockBuilding(button) {

@@ -5,8 +5,8 @@
 import addMuscles, { addMusclesPerSecond, addRepsPerSecond } from "../components/muscles.js";
 import loadSavedData from "./storage.js";
 import setupEventListeners from "./events.js";
-import renderItems from "./render.js";
-import renderBuildings from "../components/unlocks/buildings.js";
+import renderItems, { renderBuildings } from "./render.js";
+// import renderBuildings from "../components/unlocks/buildings.js";
 
 // =========================
 // DOM Elements
@@ -24,10 +24,11 @@ function initializeGame() {
   loadSavedData();
   setupEventListeners(btn, addMuscles);
   renderItems($items);
+  renderBuildings($buildings);
   addMusclesPerSecond();
   addRepsPerSecond();
   // renderUnlocks($items);
-  renderBuildings($buildings);
+  // renderBuildings($buildings);
 }
 
 export default initializeGame;
