@@ -28,7 +28,7 @@ export function addRepsPerSecond() {
   const currentCount = parseFloat(localStorage.getItem("repCount") || 0);
   const newValue = currentCount + RPS;
 
-  reps.innerText = newValue.toFixed(2).toLocaleString();
+  reps.innerText = parseFloat(newValue.toFixed(2)).toLocaleString();
   localStorage.setItem("repCount", newValue.toFixed(2));
 
   setTimeout(() => {
