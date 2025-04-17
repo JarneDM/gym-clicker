@@ -1,4 +1,4 @@
-import items from "../../data/data.js";
+import items from "../../data/data.js"; // Ensure this path is correct relative to the file location
 
 export default class Item {
   constructor(classname, { name, cost, mps = 0 }) {

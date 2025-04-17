@@ -51,19 +51,19 @@ export const buildings = [
 ];
 
 export const personel = [
-  { name: "Personal Trainer", rps: 0.5, cost: 100, unlocked: false, level: 0, costMultiplier: 1.5 },
-  { name: "Nutrition Coach", rps: 1, cost: 500, unlocked: false, level: 0, costMultiplier: 1.6 },
-  { name: "Physiotherapist", rps: 2, cost: 2000, unlocked: false, level: 0, costMultiplier: 1.7 },
-  { name: "Sports Psychologist", rps: 3, cost: 5000, unlocked: false, level: 0, costMultiplier: 1.8 },
-  { name: "Strength Coach", rps: 5, cost: 10000, unlocked: false, level: 0, costMultiplier: 1.9 },
-  { name: "Cardio Coach", rps: 7, cost: 20000, unlocked: false, level: 0, costMultiplier: 2.0 },
-  { name: "Flexibility Coach", rps: 10, cost: 50000, unlocked: false, level: 0, costMultiplier: 2.1 },
-  { name: "Recovery Coach", rps: 15, cost: 100000, unlocked: false, level: 0, costMultiplier: 2.2 },
-  { name: "Yoga Instructor", rps: 20, cost: 200000, unlocked: false, level: 0, costMultiplier: 2.3 },
-  { name: "Pilates Instructor", rps: 25, cost: 500000, unlocked: false, level: 0, costMultiplier: 2.4 },
-  { name: "Dance Instructor", rps: 30, cost: 1000000, unlocked: false, level: 0, costMultiplier: 2.5 },
-  { name: "Martial Arts Instructor", rps: 50, cost: 2000000, unlocked: false, level: 0, costMultiplier: 2.6 },
-  { name: "Sports Coach", rps: 100, cost: 5000000, unlocked: false, level: 0, costMultiplier: 2.7 },
+  { name: "Personal Trainer", rps: 0.5, cost: 10000, unlocked: false, level: 0, costMultiplier: 1.5 },
+  { name: "Nutrition Coach", rps: 1, cost: 50000, unlocked: false, level: 0, costMultiplier: 1.6 },
+  { name: "Physiotherapist", rps: 2, cost: 20000, unlocked: false, level: 0, costMultiplier: 1.7 },
+  { name: "Sports Psychologist", rps: 3, cost: 51000, unlocked: false, level: 0, costMultiplier: 1.8 },
+  { name: "Strength Coach", rps: 5, cost: 100000, unlocked: false, level: 0, costMultiplier: 1.9 },
+  { name: "Cardio Coach", rps: 7, cost: 200000, unlocked: false, level: 0, costMultiplier: 2.0 },
+  { name: "Flexibility Coach", rps: 10, cost: 500000, unlocked: false, level: 0, costMultiplier: 2.1 },
+  { name: "Recovery Coach", rps: 15, cost: 150000, unlocked: false, level: 0, costMultiplier: 2.2 },
+  { name: "Yoga Instructor", rps: 20, cost: 250000, unlocked: false, level: 0, costMultiplier: 2.3 },
+  { name: "Pilates Instructor", rps: 25, cost: 5000000, unlocked: false, level: 0, costMultiplier: 2.4 },
+  { name: "Dance Instructor", rps: 30, cost: 15000000, unlocked: false, level: 0, costMultiplier: 2.5 },
+  { name: "Martial Arts Instructor", rps: 50, cost: 20000000, unlocked: false, level: 0, costMultiplier: 2.6 },
+  { name: "Sports Coach", rps: 100, cost: 15000000, unlocked: false, level: 0, costMultiplier: 2.7 },
 ];
 
 // THE COST OF SKILLS IS IN REPS
