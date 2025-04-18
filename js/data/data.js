@@ -64,6 +64,9 @@ export const personel = [
   { name: "Dance Instructor", rps: 30, cost: 15000000, unlocked: false, level: 0, costMultiplier: 2.5 },
   { name: "Martial Arts Instructor", rps: 50, cost: 20000000, unlocked: false, level: 0, costMultiplier: 2.6 },
   { name: "Sports Coach", rps: 100, cost: 15000000, unlocked: false, level: 0, costMultiplier: 2.7 },
+  { name: "Strength and Conditioning Coach", rps: 200, cost: 50000000, unlocked: false, level: 0, costMultiplier: 2.8 },
+  { name: "Exercise Physiologist", rps: 500, cost: 100000000, unlocked: false, level: 0, costMultiplier: 2.9 },
+  { name: "Sports Scientist", rps: 1000, cost: 500000000, unlocked: false, level: 0, costMultiplier: 3.0 },
 ];
 
 // THE COST OF SKILLS IS IN REPS

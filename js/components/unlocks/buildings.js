@@ -1,4 +1,5 @@
 import { buildings } from "../../data/data.js";
+import { renderPassives } from "../../core/render.js";
 
 export default class Building {
   constructor(classname, { name, cost, rps = 0 }) {
@@ -64,4 +65,5 @@ export function unlockBuilding(button) {
   // update UI
   button.style.display = "none";
   building.unlocked = true;
+  renderPassives();
 }

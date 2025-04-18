@@ -1,4 +1,5 @@
 import items from "../../data/data.js"; // Ensure this path is correct relative to the file location
+import { renderPassives } from "../../core/render.js";
 
 export default class Item {
   constructor(classname, { name, cost, mps = 0 }) {
@@ -14,19 +15,23 @@ export default class Item {
 
     return `
       <div class="${this.classname}">
-        <span class="item-name name">${this.name}</span>
-        <br>
-        <span class="item-cost cost">Cost: ${this.cost.toLocaleString()}</span>
-        <br>
-        <span class="item-mps mps">Muscle Per Second: ${this.mps}</span>
-        <button 
-          class="unlock-btn" 
-          data-itemname="${this.name}"
-          ${isUnlocked ? 'style="display: none;"' : ""}
-        >
-          Unlock
-        </button>
-      </div>
+  <div class="item-row">
+    <span class="item-name name">${this.name}</span>
+  </div>
+  <div class="item-row">
+    <span class="item-cost cost">Cost: ${this.cost.toLocaleString()}</span>
+  </div>
+  <div class="item-row">
+    <span class="item-mps mps">Muscle Per Second: ${this.mps}</span>
+  </div>
+  <button 
+    class="unlock-btn" 
+    data-itemname="${this.name}"
+    ${isUnlocked ? 'style="display: none;"' : ""}
+  >
+    Unlock
+  </button>
+</div>
     `;
   }
 }
@@ -49,4 +54,6 @@ export function unlockItem(button) {
 
   button.style.display = "none";
   item.unlocked = true;
+
+  renderPassives();
 }

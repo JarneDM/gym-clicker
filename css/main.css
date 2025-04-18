@@ -1,9 +1,24 @@
+/* Updated CSS - changes marked with comments */
+
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bytesized&family=Indie+Flower&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Silkscreen:wght@400;700&family=Yatra+One&display=swap");
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Yatra One", system-ui;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #fdf2c5;
+  color: #3a2c1c;
+}
+
+.passive {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background-color: #ffeaa7;
+  padding: 1rem;
+  border: 4px solid #a67c52;
+  box-shadow: 4px 4px 0 #c2a266;
+  border-radius: 10px;
+  width: fit-content;
 }
 
 img {
@@ -13,7 +28,8 @@ img {
 .title {
   text-align: center;
   margin: 20px 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px #a67c52;
 }
 
 .counter-container {
@@ -22,44 +38,47 @@ img {
   align-items: center;
   margin: 0 auto;
   width: 20rem;
+  padding: 1rem;
+  background-color: #fff5d1;
+  border: 4px solid #a67c52;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 #c2a266;
 }
 
 .counters {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  width: 10rem;
-  padding: 0.7rem;
+  margin: 0.5rem auto;
+  background-color: #fff2c2;
+  border: 3px solid #a67c52;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 100%;
 }
-/* .counters {
-} */
 
 .counter-container .btn {
-  background-color: black;
+  background-color: #2d3436;
   color: white;
-  /* padding: 10px 20px; */
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 0 auto;
   cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 3px solid #000;
   border-radius: 50%;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
+  margin: 1rem auto 0;
+  box-shadow: 3px 3px 0 #a67c52;
 }
 
 .btn:hover {
   background-color: white;
   color: black;
-  border: 1px solid black;
-  transition: 0.3s ease;
+  transform: translate(1px, 1px);
 }
 
 .click {
-  height: 1rem;
+  height: 1.2rem;
 }
 
 .counter {
@@ -67,27 +86,97 @@ img {
   width: 5rem;
 }
 
+.item-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 100rem;
+  margin: 2rem auto;
+  background-color: #fff9d9;
+  border: 4px solid #a67c52;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 #c2a266;
+}
+
+.menu-block {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .menu {
-  background-color: #eee;
-  color: #444;
+  font-family: "Quantico", sans-serif;
+  background-color: #f5e6b3;
+  color: #3a2c1c;
   cursor: pointer;
   padding: 18px;
   width: 20rem;
-  border: none;
+  border: 4px solid #a67c52;
+  border-radius: 8px;
   text-align: left;
   outline: none;
-  font-size: 15px;
+  font-size: 20px;
+  box-shadow: 4px 4px 0px #c2a266;
+  transition: all 0.1s ease-in-out;
+  margin: 0;
 }
 
 .active,
 .menu:hover {
-  background-color: #ccc;
+  background-color: #e6cc8f;
+  box-shadow: 2px 2px 0px #c2a266;
+  transform: translate(2px, 2px);
 }
 
 .content {
-  padding: 0 18px;
+  padding: 1rem;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #fff8dc;
   width: 20rem;
+  border: 4px solid #a67c52;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #c2a266;
+  margin: 1rem 0 1rem 0;
+  padding: 0.5rem;
+}
+
+.gym__item,
+.gym__buildings,
+.gym__personel {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #fff1b6;
+  border: 2px solid #a67c52;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 #c2a266;
+  font-size: 0.95rem;
+  width: auto;
+  min-width: 0;
+}
+
+.unlock-btn {
+  margin-top: 0.5rem;
+  background-color: #d35400;
+  color: #fff;
+  border: 2px solid #a67c52;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: "Quantico", sans-serif;
+  box-shadow: 2px 2px 0 #c2a266;
+  transition: all 0.1s ease-in-out;
+  width: 100%;
+}
+
+.unlock-btn:hover {
+  background-color: #e67e22;
+  transform: translate(1px, 1px);
 }

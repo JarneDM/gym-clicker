@@ -5,7 +5,7 @@
 import addMuscles, { addMusclesPerSecond, addRepsPerSecond } from "../components/muscles.js";
 import loadSavedData from "./storage.js";
 import setupEventListeners from "./events.js";
-import renderItems, { renderBuildings, renderPersonel } from "./render.js";
+import renderItems, { renderBuildings, renderPassives, renderPersonel } from "./render.js";
 // import renderBuildings from "../components/unlocks/buildings.js";
 
 // =========================
@@ -16,6 +16,8 @@ const btn = document.querySelector("#click-btn");
 const $items = document.querySelector("#items");
 const $buildings = document.querySelector("#buildings");
 const $personel = document.querySelector("#personel");
+const $mps = document.querySelector("#mps");
+const $rps = document.querySelector("#rps");
 
 // =========================
 // Initialization
@@ -29,6 +31,7 @@ function initializeGame() {
   renderItems($items);
   renderBuildings($buildings);
   renderPersonel($personel);
+  renderPassives($mps, $rps);
 
   // passive income
   addMusclesPerSecond();

@@ -62,3 +62,14 @@ export function renderPersonel($personelDiv) {
     }
   });
 }
+
+export function renderPassives() {
+  const $mps = document.querySelector("#mps");
+  const $rps = document.querySelector("#rps");
+
+  const mps = parseFloat(localStorage.getItem("musclePerSecond") || 0);
+  const rps = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+
+  $mps.textContent = `${mps.toLocaleString()} Per Second`;
+  $rps.textContent = `${rps.toLocaleString()} Per Second`;
+}

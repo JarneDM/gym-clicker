@@ -1,4 +1,5 @@
 import { personel } from "../../data/data.js";
+import { renderPassives } from "../../core/render.js";
 
 export default class Personel {
   constructor(classname, { name, cost, rps = 0 }) {
@@ -63,4 +64,7 @@ export function unlockPersonel(button) {
   // update UI
   button.style.display = "none";
   person.unlocked = true;
+
+  // Dynamically update rps and mps
+  renderPassives();
 }
