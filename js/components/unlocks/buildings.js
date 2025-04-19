@@ -30,38 +30,40 @@ export default class Building {
       </div>
     `;
   }
+
+  unlock(button) {
+    const name = button.dataset.buildingname;
+    const building = buildings.find((building) => building.name === name);
+
+    // current values
+    const currentRPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+    const unlockedBuildings = JSON.parse(localStorage.getItem("unlockedBuildings")) || [];
+    const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
+    const repCount = parseFloat(localStorage.getItem("repCount") || 0);
+
+    if (unlockedBuildings.includes(name)) {
+      alert("Building already unlocked!");
+      return;
+    }
+
+    if (counterValue < building.cost) {
+      alert("Not enough muscles!");
+      return;
+    }
+
+    const updatedUnlockedBuildings = [...unlockedBuildings, name];
+    localStorage.setItem("unlockedBuildings", JSON.stringify(updatedUnlockedBuildings));
+
+    const newCounterValue = counterValue - building.cost;
+    localStorage.setItem("muscleCount", newCounterValue);
+
+    parseFloat(localStorage.setItem("repCount", repCount + building.rps));
+    localStorage.setItem("repsPerSecond", currentRPS + building.rps);
+
+    button.style.display = "none";
+    building.unlocked = true;
+    renderPassives();
+  }
 }
 
-export function unlockBuilding(button) {
-  const name = button.dataset.buildingname;
-  const building = buildings.find((building) => building.name === name);
-
-  // current values
-  const currentRPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
-  const unlockedBuildings = JSON.parse(localStorage.getItem("unlockedBuildings")) || [];
-  const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
-  const repCount = parseFloat(localStorage.getItem("repCount") || 0);
-
-  if (unlockedBuildings.includes(name)) {
-    alert("Building already unlocked!");
-    return;
-  }
-
-  if (counterValue < building.cost) {
-    alert("Not enough muscles!");
-    return;
-  }
-
-  const updatedUnlockedBuildings = [...unlockedBuildings, name];
-  localStorage.setItem("unlockedBuildings", JSON.stringify(updatedUnlockedBuildings));
-
-  const newCounterValue = counterValue - building.cost;
-  localStorage.setItem("muscleCount", newCounterValue);
-
-  parseFloat(localStorage.setItem("repCount", repCount + building.rps));
-  localStorage.setItem("repsPerSecond", currentRPS + building.rps);
-
-  button.style.display = "none";
-  building.unlocked = true;
-  renderPassives();
-}
+export function unlockBuilding(button) {}

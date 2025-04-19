@@ -1,8 +1,8 @@
 import items, { buildings, personel, upgrades } from "../data/data.js";
-import Item, { unlockItem } from "../components/unlocks/items.js";
-import Building, { unlockBuilding } from "../components/unlocks/buildings.js";
-import Personel, { unlockPersonel } from "../components/unlocks/personel.js";
-import Upgrades, { purchaseUpgrade } from "../components/unlocks/upgrades.js";
+import Item from "../components/unlocks/items.js";
+import Building from "../components/unlocks/buildings.js";
+import Personel from "../components/unlocks/personel.js";
+import Upgrades from "../components/unlocks/upgrades.js";
 
 export default function renderItems($itemsDiv) {
   let sortedItems = [...items].sort((a, b) => a.cost - b.cost);
@@ -15,11 +15,13 @@ export default function renderItems($itemsDiv) {
 
   $itemsDiv.innerHTML = content;
 
-  // add click listeners only to visible buttons
   $itemsDiv.addEventListener("click", (e) => {
     const btn = e.target.closest(".unlock-btn");
     if (btn && btn.style.display !== "none") {
-      unlockItem(btn);
+      const itemInstance = gymItems.find((item) => item.name === btn.dataset.itemname);
+      if (itemInstance) {
+        itemInstance.unlock(btn);
+      }
     }
   });
 }
@@ -39,7 +41,10 @@ export function renderBuildings($buildingsDiv) {
   $buildingsDiv.addEventListener("click", (e) => {
     const btn = e.target.closest(".unlock-btn");
     if (btn && btn.style.display !== "none") {
-      unlockBuilding(btn);
+      const buildingInstance = gymBuildings.find((building) => building.name === btn.dataset.buildingname);
+      if (buildingInstance) {
+        buildingInstance.unlock(btn);
+      }
     }
   });
 }
@@ -59,7 +64,10 @@ export function renderPersonel($personelDiv) {
   $personelDiv.addEventListener("click", (e) => {
     const btn = e.target.closest(".unlock-btn");
     if (btn && btn.style.display !== "none") {
-      unlockPersonel(btn);
+      const personInstance = gymPersonel.find((person) => person.name === btn.dataset.personelname);
+      if (personInstance) {
+        personInstance.unlock(btn);
+      }
     }
   });
 }
@@ -89,7 +97,10 @@ export function renderUpgrades($upgradesDiv) {
   $upgradesDiv.addEventListener("click", (e) => {
     const btn = e.target.closest(".unlock-btn");
     if (btn && btn.style.display !== "none") {
-      purchaseUpgrade(btn);
+      const upgradeInstance = gymUpgrades.find((upgrade) => upgrade.name === btn.dataset.upgradename);
+      if (upgradeInstance) {
+        upgradeInstance.purchase(btn);
+      }
     }
   });
 }

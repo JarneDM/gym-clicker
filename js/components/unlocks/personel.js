@@ -30,41 +30,43 @@ export default class Personel {
       </div>
     `;
   }
+
+  unlock(button) {
+    const name = button.dataset.personelname;
+    const person = personel.find((person) => person.name === name);
+
+    // current values
+    const currentRPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+    const unlockedPersonel = JSON.parse(localStorage.getItem("unlockedPersonel")) || [];
+    const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
+    const repCount = parseFloat(localStorage.getItem("repCount") || 0);
+
+    if (unlockedPersonel.includes(name)) {
+      alert("Item already unlocked!");
+      return;
+    }
+
+    if (counterValue < person.cost) {
+      alert("Not enough muscles!");
+      return;
+    }
+
+    const updatedPersonel = [...unlockedPersonel, name];
+    localStorage.setItem("unlockedPersonel", JSON.stringify(updatedPersonel));
+
+    const newCounterValue = counterValue - person.cost;
+    localStorage.setItem("muscleCount", newCounterValue);
+
+    parseFloat(localStorage.setItem("repCount", repCount + person.rps));
+    localStorage.setItem("repsPerSecond", currentRPS + person.rps);
+
+    // update UI
+    button.style.display = "none";
+    person.unlocked = true;
+
+    // Dynamically update rps and mps
+    renderPassives();
+  }
 }
 
-export function unlockPersonel(button) {
-  const name = button.dataset.personelname;
-  const person = personel.find((person) => person.name === name);
-
-  // current values
-  const currentRPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
-  const unlockedPersonel = JSON.parse(localStorage.getItem("unlockedPersonel")) || [];
-  const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
-  const repCount = parseFloat(localStorage.getItem("repCount") || 0);
-
-  if (unlockedPersonel.includes(name)) {
-    alert("Item already unlocked!");
-    return;
-  }
-
-  if (counterValue < person.cost) {
-    alert("Not enough muscles!");
-    return;
-  }
-
-  const updatedPersonel = [...unlockedPersonel, name];
-  localStorage.setItem("unlockedPersonel", JSON.stringify(updatedPersonel));
-
-  const newCounterValue = counterValue - person.cost;
-  localStorage.setItem("muscleCount", newCounterValue);
-
-  parseFloat(localStorage.setItem("repCount", repCount + person.rps));
-  localStorage.setItem("repsPerSecond", currentRPS + person.rps);
-
-  // update UI
-  button.style.display = "none";
-  person.unlocked = true;
-
-  // Dynamically update rps and mps
-  renderPassives();
-}
+export function unlockPersonel(button) {}

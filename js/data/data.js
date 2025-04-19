@@ -234,15 +234,23 @@ export const upgrades = [
   { name: "Advanced Program", effect: "All buildings +5% output", cost: 5000, purchased: false },
   { name: "Nutrition Plan", effect: "+10% mps", cost: 10000, purchased: false },
   { name: "Advanced Equipment", effect: "+20% items output", cost: 20000, purchased: false },
-  { name: "Personal Trainer", effect: "+50% personal trainer output", cost: 50000, purchased: false },
-  { name: "Advanced Supplements", effect: "+30% supplement mps", cost: 100000, purchased: false },
+  { name: "Personal Trainer", effect: "+50% personel output", cost: 50000, purchased: false },
+  { name: "Advanced Supplements", effect: "+30% global mps", cost: 100000, purchased: false },
   { name: "Elite Program", effect: "+50% global mps", cost: 200000, purchased: false },
-  { name: "Ultimate Equipment", effect: "+100% gym output", cost: 500000, purchased: false },
-  { name: "Pro Coach", effect: "+100% personal trainer output", cost: 1000000, purchased: false },
-  { name: "Super Supplements", effect: "+50% supplement mps", cost: 2000000, purchased: false },
-  { name: "Master Program", effect: "+100% global mps", cost: 5000000, purchased: false },
-  { name: "Godlike Equipment", effect: "+200% gym output", cost: 10000000, purchased: false },
-  { name: "Legendary Coach", effect: "+200% personal trainer output", cost: 20000000, purchased: false },
+  { name: "Ultimate Equipment", effect: "+100% building output", cost: 500000, purchased: false },
+];
+
+export const steroids = [
+  { name: "Testosterone", effect: 0.1, cost: 100000, purchased: false },
+  { name: "Anavar", effect: 0.15, cost: 250000, purchased: false },
+  { name: "Dianabol", effect: 0.2, cost: 300000, purchased: false },
+  { name: "Trenbolone", effect: 0.25, cost: 95000000, purchased: false },
+  { name: "Winstrol", effect: 0.3, cost: 5000000, purchased: false },
+  { name: "Deca Durabolin", effect: 0.35, cost: 600000, purchased: false },
+  { name: "HGH", effect: 0.4, cost: 7000000, purchased: false },
+  { name: "Insulin", effect: 0.5, cost: 8000000, purchased: false },
+  { name: "Clenbuterol", effect: 0.6, cost: 9000000, purchased: false },
+  { name: "SARMs", effect: 0.7, cost: 1000000, purchased: false },
 ];
 
 // THE POWER IS IN MUSCLES AND THE CARDIO AND FLEXIBILITY ARE IN REPS
