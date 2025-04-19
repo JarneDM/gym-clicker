@@ -229,11 +229,11 @@ export const achievements = [
 // COST IS IN REPS
 export const upgrades = [
   { name: "Better Shoes", effect: "Double click power", cost: 500, purchased: false },
-  { name: "Gym Membership", effect: "Unlock new buildings", cost: 1000, purchased: false },
+  { name: "Gym Membership", effect: "Triple click power", cost: 1000, purchased: false },
   { name: "BCAA Boost", effect: "+10% global mps", cost: 3000, purchased: false },
   { name: "Advanced Program", effect: "All buildings +5% output", cost: 5000, purchased: false },
-  { name: "Nutrition Plan", effect: "+10% food mps", cost: 10000, purchased: false },
-  { name: "Advanced Equipment", effect: "+20% gym output", cost: 20000, purchased: false },
+  { name: "Nutrition Plan", effect: "+10% mps", cost: 10000, purchased: false },
+  { name: "Advanced Equipment", effect: "+20% items output", cost: 20000, purchased: false },
   { name: "Personal Trainer", effect: "+50% personal trainer output", cost: 50000, purchased: false },
   { name: "Advanced Supplements", effect: "+30% supplement mps", cost: 100000, purchased: false },
   { name: "Elite Program", effect: "+50% global mps", cost: 200000, purchased: false },

@@ -17,7 +17,7 @@ export default class Building {
       <div class="${this.classname}">
         <span class="building-name name">${this.name}</span>
         <br>
-        <span class="building-cost cost">Cost: ${this.cost.toLocaleString()}</span>
+        <span class="building-cost cost">Cost: ${this.cost.toLocaleString()} muscles</span>
         <br>
         <span class="building-rps rps">Reps Per Second: ${this.rps}</span>
         <button 
@@ -52,7 +52,6 @@ export function unlockBuilding(button) {
     return;
   }
 
-  // unlock building
   const updatedUnlockedBuildings = [...unlockedBuildings, name];
   localStorage.setItem("unlockedBuildings", JSON.stringify(updatedUnlockedBuildings));
 
@@ -62,7 +61,6 @@ export function unlockBuilding(button) {
   parseFloat(localStorage.setItem("repCount", repCount + building.rps));
   localStorage.setItem("repsPerSecond", currentRPS + building.rps);
 
-  // update UI
   button.style.display = "none";
   building.unlocked = true;
   renderPassives();

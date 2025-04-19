@@ -17,7 +17,7 @@ export default class Personel {
       <div class="${this.classname}">
         <span class="personel-name name">${this.name}</span>
         <br>
-        <span class="personel-cost cost">Cost: ${this.cost.toLocaleString()}</span>
+        <span class="personel-cost cost">Cost: ${this.cost.toLocaleString()} muscles</span>
         <br>
         <span class="personel-rps rps">Reps Per Second: ${this.rps}</span>
         <button 

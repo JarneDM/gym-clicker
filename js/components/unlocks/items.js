@@ -19,7 +19,7 @@ export default class Item {
     <span class="item-name name">${this.name}</span>
   </div>
   <div class="item-row">
-    <span class="item-cost cost">Cost: ${this.cost.toLocaleString()}</span>
+    <span class="item-cost cost">Cost: ${this.cost.toLocaleString()} muscles</span>
   </div>
   <div class="item-row">
     <span class="item-mps mps">Muscle Per Second: ${this.mps}</span>

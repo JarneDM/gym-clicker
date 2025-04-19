@@ -1,7 +1,8 @@
-import items, { buildings, personel } from "../data/data.js";
+import items, { buildings, personel, upgrades } from "../data/data.js";
 import Item, { unlockItem } from "../components/unlocks/items.js";
 import Building, { unlockBuilding } from "../components/unlocks/buildings.js";
 import Personel, { unlockPersonel } from "../components/unlocks/personel.js";
+import Upgrades, { purchaseUpgrade } from "../components/unlocks/upgrades.js";
 
 export default function renderItems($itemsDiv) {
   let sortedItems = [...items].sort((a, b) => a.cost - b.cost);
@@ -72,4 +73,23 @@ export function renderPassives() {
 
   $mps.textContent = `${mps.toLocaleString()} Per Second`;
   $rps.textContent = `${rps.toLocaleString()} Per Second`;
+}
+
+export function renderUpgrades($upgradesDiv) {
+  let sortedUpgrades = [...upgrades].sort((a, b) => a.cost - b.cost);
+  const gymUpgrades = sortedUpgrades.map((upgrade) => new Upgrades("gym__upgrades", upgrade));
+
+  let uContent = "";
+  gymUpgrades.forEach((upgrade) => {
+    uContent += upgrade.render();
+  });
+
+  $upgradesDiv.innerHTML = uContent;
+
+  $upgradesDiv.addEventListener("click", (e) => {
+    const btn = e.target.closest(".unlock-btn");
+    if (btn && btn.style.display !== "none") {
+      purchaseUpgrade(btn);
+    }
+  });
 }

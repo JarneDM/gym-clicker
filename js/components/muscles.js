@@ -3,7 +3,8 @@ const reps = document.querySelector("#reps");
 
 export default function addMuscles() {
   const currentCount = parseFloat(localStorage.getItem("muscleCount") || 0);
-  const newValue = currentCount + 1;
+  const currClickPower = parseFloat(localStorage.getItem("clickPower") || 1);
+  const newValue = currentCount + currClickPower;
 
   counter.innerText = newValue;
   localStorage.setItem("muscleCount", newValue);
