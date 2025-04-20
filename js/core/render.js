@@ -1,8 +1,9 @@
-import items, { buildings, personel, upgrades } from "../data/data.js";
+import items, { buildings, personel, steroids, upgrades } from "../data/data.js";
 import Item from "../components/unlocks/items.js";
 import Building from "../components/unlocks/buildings.js";
 import Personel from "../components/unlocks/personel.js";
 import Upgrades from "../components/unlocks/upgrades.js";
+import Steroids from "../components/unlocks/steriods.js";
 
 export default function renderItems($itemsDiv) {
   let sortedItems = [...items].sort((a, b) => a.cost - b.cost);
@@ -100,6 +101,28 @@ export function renderUpgrades($upgradesDiv) {
       const upgradeInstance = gymUpgrades.find((upgrade) => upgrade.name === btn.dataset.upgradename);
       if (upgradeInstance) {
         upgradeInstance.purchase(btn);
+      }
+    }
+  });
+}
+
+export function renderSteriods($steriodsDiv) {
+  let steriods = [...steroids].sort((a, b) => a.cost - b.cost);
+  const anabolicSteroids = steriods.map((steriod) => new Steroids("gym__steroids", steriod));
+
+  let sContent = "";
+  anabolicSteroids.forEach((steroid) => {
+    sContent += steroid.render();
+  });
+
+  $steriodsDiv.innerHTML = sContent;
+
+  $steriodsDiv.addEventListener("click", (e) => {
+    const btn = e.target.closest(".unlock-btn");
+    if (btn && btn.style.display !== "none") {
+      const steroidInstance = anabolicSteroids.find((steriod) => steriod.name === btn.dataset.steroidname);
+      if (steroidInstance) {
+        steroidInstance.unlock(btn);
       }
     }
   });

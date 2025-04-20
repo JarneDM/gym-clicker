@@ -82,11 +82,11 @@ img {
 
 .click {
   height: 1.2rem;
+  margin: 0 auto;
 }
 
 .counter {
-  margin-left: 0.5rem;
-  width: 5rem;
+  width: 8rem;
 }
 
 .item-container {
@@ -96,7 +96,7 @@ img {
   justify-content: space-around;
   gap: 1rem;
   padding: 1rem;
-  max-width: 100rem;
+  max-width: 90rem;
   margin: 2rem auto;
   background-color: #fff9d9;
   border: 4px solid #a67c52;
@@ -119,7 +119,7 @@ img {
   color: #3a2c1c;
   cursor: pointer;
   padding: 18px;
-  width: 20rem;
+  width: 15rem;
   border: 4px solid #a67c52;
   border-radius: 8px;
   text-align: left;

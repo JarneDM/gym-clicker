@@ -241,16 +241,16 @@ export const upgrades = [
 ];
 
 export const steroids = [
-  { name: "Testosterone", effect: 0.1, cost: 100000, purchased: false },
-  { name: "Anavar", effect: 0.15, cost: 250000, purchased: false },
-  { name: "Dianabol", effect: 0.2, cost: 300000, purchased: false },
-  { name: "Trenbolone", effect: 0.25, cost: 95000000, purchased: false },
-  { name: "Winstrol", effect: 0.3, cost: 5000000, purchased: false },
-  { name: "Deca Durabolin", effect: 0.35, cost: 600000, purchased: false },
-  { name: "HGH", effect: 0.4, cost: 7000000, purchased: false },
-  { name: "Insulin", effect: 0.5, cost: 8000000, purchased: false },
-  { name: "Clenbuterol", effect: 0.6, cost: 9000000, purchased: false },
-  { name: "SARMs", effect: 0.7, cost: 1000000, purchased: false },
+  { name: "Testosterone", effect: "+10% power up", cost: 100000, purchased: false },
+  { name: "Anavar", effect: "+15% power up", cost: 250000, purchased: false },
+  { name: "Dianabol", effect: "+20% power up", cost: 300000, purchased: false },
+  { name: "SARMs", effect: "+25% power up", cost: 1000000, purchased: false },
+  { name: "Winstrol", effect: "+30% power up", cost: 5000000, purchased: false },
+  { name: "Deca Durabolin", effect: "+35% power up", cost: 600000, purchased: false },
+  { name: "HGH", effect: "+40% power up", cost: 7000000, purchased: false },
+  { name: "Insulin", effect: "+50% power up", cost: 8000000, purchased: false },
+  { name: "Clenbuterol", effect: "+60% power up", cost: 9000000, purchased: false },
+  { name: "Trenbolone", effect: "+70% power up", cost: 95000000, purchased: false },
 ];
 
 // THE POWER IS IN MUSCLES AND THE CARDIO AND FLEXIBILITY ARE IN REPS
