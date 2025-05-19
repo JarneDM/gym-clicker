@@ -10,6 +10,21 @@ body {
   color: #3a2c1c;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffeaa7;
+  color: #3a2c1c;
+  text-align: center;
+  padding: 0;
+  height: 3rem;
+  border-top: 3px solid #a67c52;
+  box-shadow: 0 -2px 0 #c2a266;
+  font-family: "Quantico", sans-serif;
+}
+
 .passive {
   margin-top: 1rem;
   margin-left: 1rem;
