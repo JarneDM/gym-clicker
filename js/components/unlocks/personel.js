@@ -10,7 +10,7 @@ export default class Personel {
   }
 
   render() {
-    const unlockPersonel = JSON.parse(localStorage.getItem("unlockedPersonel")) || [];
+    const unlockPersonel = JSON.parse(localStorage.getItem("unlockedPersonel") || "[]");
     const isUnlocked = unlockPersonel.includes(this.name);
 
     return `
@@ -37,7 +37,7 @@ export default class Personel {
 
     // current values
     const currentRPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
-    const unlockedPersonel = JSON.parse(localStorage.getItem("unlockedPersonel")) || [];
+    const unlockedPersonel = JSON.parse(localStorage.getItem("unlockedPersonel") || "[]");
     const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
     const repCount = parseFloat(localStorage.getItem("repCount") || 0);
 

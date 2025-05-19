@@ -10,7 +10,7 @@ export default class Item {
   }
 
   render() {
-    const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
+    const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems") || "[]");
     const isUnlocked = unlockedItems.includes(this.name);
 
     return `
@@ -40,7 +40,7 @@ export default class Item {
     const item = items.find((item) => item.name === name);
 
     const currentMPS = parseFloat(localStorage.getItem("musclePerSecond") || 0);
-    const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems")) || [];
+    const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems") || "[]");
     const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
 
     if (unlockedItems.includes(name)) return alert("Item already unlocked!");

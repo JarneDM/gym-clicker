@@ -9,7 +9,7 @@ export default class Steroids {
   }
 
   render() {
-    const unlockedSteroids = JSON.parse(localStorage.getItem("unlockedSteroids")) || [];
+    const unlockedSteroids = JSON.parse(localStorage.getItem("unlockedSteroids") || "[]");
     const isUnlocked = unlockedSteroids.includes(this.name);
 
     return `
@@ -39,7 +39,7 @@ export default class Steroids {
     const name = button.dataset.steroidname;
     const steroid = steroids.find((steroid) => steroid.name === name);
 
-    const unlockedSteroids = JSON.parse(localStorage.getItem("unlockedSteroids")) || [];
+    const unlockedSteroids = JSON.parse(localStorage.getItem("unlockedSteroids") || "[]");
     const currReps = parseFloat(localStorage.getItem("repCount") || 0);
 
     if (unlockedSteroids.includes(name)) return alert("Steroid already unlocked!");

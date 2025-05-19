@@ -181,3 +181,16 @@ img {
   background-color: #e67e22;
   transform: translate(1px, 1px);
 }
+
+.buttons {
+  margin: 0 auto;
+}
+
+.reset {
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  color: white;
+  cursor: pointer;
+}

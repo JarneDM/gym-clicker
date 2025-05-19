@@ -10,7 +10,7 @@ export default class Building {
   }
 
   render() {
-    const unlockBuildings = JSON.parse(localStorage.getItem("unlockedBuildings")) || [];
+    const unlockBuildings = JSON.parse(localStorage.getItem("unlockedBuildings") || "[]");
     const isUnlocked = unlockBuildings.includes(this.name);
 
     return `
@@ -37,7 +37,7 @@ export default class Building {
 
     // current values
     const currentRPS = parseFloat(localStorage.getItem("repsPerSecond") || 0);
-    const unlockedBuildings = JSON.parse(localStorage.getItem("unlockedBuildings")) || [];
+    const unlockedBuildings = JSON.parse(localStorage.getItem("unlockedBuildings") || "[]");
     const counterValue = parseFloat(localStorage.getItem("muscleCount") || 0);
     const repCount = parseFloat(localStorage.getItem("repCount") || 0);
 
