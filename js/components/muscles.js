@@ -19,11 +19,9 @@ export function addMusclesPerSecond() {
   localStorage.setItem("muscleCount", newValue);
   document.title = `Gym Clickr | ${newValue.toLocaleString()} Muscle`;
 
-  if (MPS !== 0) {
-    setTimeout(() => {
-      addMusclesPerSecond();
-    }, 1000);
-  }
+  setTimeout(() => {
+    addMusclesPerSecond();
+  }, 1000);
 }
 
 export function addRepsPerSecond() {
@@ -34,9 +32,7 @@ export function addRepsPerSecond() {
   reps.innerText = parseFloat(newValue.toFixed(2)).toLocaleString();
   localStorage.setItem("repCount", newValue.toFixed(2));
 
-  if (RPS !== 0) {
-    setTimeout(() => {
-      addRepsPerSecond();
-    }, 1000);
-  }
+  setTimeout(() => {
+    addRepsPerSecond();
+  }, 1000);
 }
