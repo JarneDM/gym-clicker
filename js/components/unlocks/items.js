@@ -1,4 +1,4 @@
-import items from "../../data/data.js"; // Ensure this path is correct relative to the file location
+import items from "../../data/data.js";
 import { renderPassives } from "../../core/render.js";
 
 export default class Item {

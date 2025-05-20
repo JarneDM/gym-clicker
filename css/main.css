@@ -90,6 +90,7 @@ img {
   transition: 0.2s ease;
   margin: 1rem auto 0;
   box-shadow: 3px 3px 0 #a67c52;
+  z-index: 5;
 }
 
 .btn:hover {
@@ -103,7 +104,6 @@ img {
   margin: 0 auto;
 }
 
-/* Muscle particles effect */
 @keyframes floatOut {
   0% {
     transform: scale(1) translate(0, 0);
