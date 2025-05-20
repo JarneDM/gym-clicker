@@ -103,6 +103,30 @@ img {
   margin: 0 auto;
 }
 
+/* Muscle particles effect */
+@keyframes floatOut {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5) translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+.muscle-particle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url("../assets/muscle-click.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOut 10s forwards;
+}
+
 .counter {
   width: 8rem;
 }
