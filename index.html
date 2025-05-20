@@ -12,6 +12,12 @@
 <body>
 
     <div class="passive">
+        <p class="muscles counters"> <img src="./assets/muscle.png" alt="Muscle Icon"> <span class="counter"
+                id="counter"></span>
+        </p>
+        <p class="reps counters"> <img src="./assets/reps.png" alt="Reps Icon"> <span class="counter" id="reps"></span>
+        </p>
+
         <p>Muscles: <span id="mps"></span></p>
         <p>Reps: <span id="rps"></span></p>
         <button class="reset" id="reset-btn">
@@ -21,44 +27,46 @@
 
     <h1 class="title">Welcome to Gym Clickr</h1>
 
-    <div class="counter-container">
-        <p class="muscles counters"> <img src="./assets/muscle.png" alt="Muscle Icon"> <span class="counter"
-                id="counter"></span>
-        </p>
 
-        <p class="reps counters"> <img src="./assets/reps.png" alt="Reps Icon"> <span class="counter" id="reps"></span>
-        </p>
 
-        <button class="btn" id="click-btn">
-            <img class="click" src="./assets/muscle.png" alt="Click Muscle Icon">
-        </button>
-    </div>
+    <button class="btn" id="click-btn">
+        <img class="click" src="./assets/muscle-click.png" alt="Click Muscle Icon">
+    </button>
 
     <div class="item-container">
         <div class="menu-block">
-            <h2 class="menu">Items</h2>
-            <div class="items content" id="items"></div>
+            <h2 class="menu" data-target="items">Items</h2>
+
         </div>
 
         <div class="menu-block">
-            <h2 class="menu">Buildings</h2>
-            <div class="buildings content" id="buildings"></div>
+            <h2 class="menu" data-target="buildings">Buildings</h2>
+
         </div>
 
         <div class="menu-block">
-            <h2 class="menu">Personel</h2>
-            <div class="personel content" id="personel"></div>
+            <h2 class="menu" data-target="personel">Personel</h2>
+
         </div>
 
         <div class="menu-block">
-            <h2 class="menu">Upgrades</h2>
-            <div class="upgrades content" id="upgrades"></div>
+            <h2 class="menu" data-target="upgrades">Upgrades</h2>
+
         </div>
 
         <div class="menu-block">
-            <h2 class="menu">Steroids</h2>
-            <div class="steroids content" id="steroids"></div>
+            <h2 class="menu" data-target="steroids">Steroids</h2>
+
         </div>
+    </div>
+
+    <div class="content-container">
+        <div class="items content" id="items"></div>
+        <div class="buildings content" id="buildings"></div>
+        <div class="personel content" id="personel"></div>
+        <div class="upgrades content" id="upgrades"></div>
+        <div class="steroids content" id="steroids"></div>
+
     </div>
 
     <footer>
