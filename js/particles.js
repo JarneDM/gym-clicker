@@ -1,4 +1,4 @@
-export default function createMuscleParticles(clickEvent) {
+export default function createMuscleParticles() {
   const button = document.getElementById("click-btn");
   const buttonRect = button.getBoundingClientRect();
   const centerX = buttonRect.left + buttonRect.width / 2;

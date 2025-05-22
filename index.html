@@ -11,18 +11,27 @@
 
 <body>
 
-    <div class="passive">
-        <p class="muscles counters"> <img src="./assets/muscle.png" alt="Muscle Icon"> <span class="counter"
-                id="counter"></span>
-        </p>
-        <p class="reps counters"> <img src="./assets/reps.png" alt="Reps Icon"> <span class="counter" id="reps"></span>
-        </p>
+    <div class="top-left">
+        <div class="passive">
+            <p class="muscles counters"> <img src="./assets/muscle.png" alt="Muscle Icon"> <span class="counter"
+                    id="counter"></span>
+            </p>
+            <p class="reps counters"> <img src="./assets/reps.png" alt="Reps Icon"> <span class="counter"
+                    id="reps"></span>
+            </p>
 
-        <p>Muscles: <span id="mps"></span></p>
-        <p>Reps: <span id="rps"></span></p>
-        <button class="reset" id="reset-btn">
-            Reset
-        </button>
+            <p>Muscles: <span id="mps"></span></p>
+            <p>Reps: <span id="rps"></span></p>
+            <button class="reset" id="reset-btn">
+                Reset
+            </button>
+        </div>
+
+        <div class="progress">
+            <button class="achievement progress__btn" id="achievement-btn">
+                <img src="./assets/achievement-logo.png" alt="achievement button">
+            </button>
+        </div>
     </div>
 
     <h1 class="title">Welcome to Gym Clickr</h1>
@@ -66,6 +75,7 @@
         <div class="personel content" id="personel"></div>
         <div class="upgrades content" id="upgrades"></div>
         <div class="steroids content" id="steroids"></div>
+        <div class="achievements content" id="achievements"></div>
 
     </div>
 

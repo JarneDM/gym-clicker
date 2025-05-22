@@ -6,6 +6,8 @@ import addMuscles, { addMusclesPerSecond, addRepsPerSecond } from "../components
 import loadSavedData from "./storage.js";
 import setupEventListeners from "./events.js";
 import renderItems, { renderBuildings, renderPassives, renderPersonel, renderUpgrades, renderSteriods } from "./render.js";
+import createMuscleParticles from "../particles.js";
+
 // import renderBuildings from "../components/unlocks/buildings.js";
 
 // =========================
@@ -28,6 +30,7 @@ const $steriods = document.querySelector("#steroids");
 function initializeGame() {
   loadSavedData();
   setupEventListeners(btn, addMuscles);
+  setupEventListeners(btn, createMuscleParticles);
 
   // rendering
   renderItems($items);
