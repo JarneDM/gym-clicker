@@ -213,17 +213,17 @@ export const achievements = [
   { name: "First Rep", condition: "Earn 1 rep", unlocked: false },
   { name: "Push-up Addict", condition: "Earn 1,000 reps", unlocked: false },
   { name: "Gym Owner", condition: "Buy 10 buildings", unlocked: false },
-  { name: "Protein Enthusiast", condition: "Buy 5 Protein Shakes", unlocked: false },
   { name: "Beast Mode", condition: "Reach 1,000 mps", unlocked: false },
   { name: "Muscle Machine", condition: "Reach 10,000,000 muscles", unlocked: false },
   { name: "Gym Bro", condition: "Unlock all items", unlocked: false },
   { name: "Fitness Guru", condition: "Unlock all upgrades", unlocked: false },
   { name: "Master of Muscles", condition: "Reach 1,000,000 muscles per second", unlocked: false },
   { name: "Ultimate Gym", condition: "Unlock all buildings", unlocked: false },
-  { name: "Flexibility Expert", condition: "Unlock all skills", unlocked: false },
-  { name: "Cardio King/Queen", condition: "Reach 100,000 cardio", unlocked: false },
-  { name: "Strength Champion", condition: "Reach 100,000 strength", unlocked: false },
-  { name: "Flexibility Master", condition: "Reach 100,000 flexibility", unlocked: false },
+  // { name: "Protein Enthusiast", condition: "Buy 5 Protein Shakes", unlocked: false },
+  // { name: "Flexibility Expert", condition: "Unlock all skills", unlocked: false },
+  // { name: "Cardio King/Queen", condition: "Reach 100,000 cardio", unlocked: false },
+  // { name: "Strength Champion", condition: "Reach 100,000 strength", unlocked: false },
+  // { name: "Flexibility Master", condition: "Reach 100,000 flexibility", unlocked: false },
 ];
 
 // COST IS IN REPS
@@ -279,6 +279,15 @@ export const skillTrees = {
     { name: "Agility", effect: "+30% flexibility", unlocked: false },
     { name: "Core Strength", effect: "+35% flexibility", unlocked: false },
     { name: "Posture", effect: "+40% flexibility", unlocked: false },
+  ],
+  diet: [
+    { name: "Protein Intake", effect: "+10% mps from food", unlocked: false },
+    { name: "Carbohydrate Cycling", effect: "+15% mps from food", unlocked: false },
+    { name: "Healthy Fats", effect: "+20% mps from food", unlocked: false },
+    { name: "Micronutrients", effect: "+25% mps from food", unlocked: false },
+    { name: "Hydration", effect: "+30% mps from food", unlocked: false },
+    { name: "Meal Timing", effect: "+35% mps from food", unlocked: false },
+    { name: "Nutrient Timing", effect: "+40% mps from food", unlocked: false },
   ],
 };
 

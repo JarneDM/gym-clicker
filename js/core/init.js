@@ -5,7 +5,14 @@
 import addMuscles, { addMusclesPerSecond, addRepsPerSecond } from "../components/muscles.js";
 import loadSavedData from "./storage.js";
 import setupEventListeners from "./events.js";
-import renderItems, { renderBuildings, renderPassives, renderPersonel, renderUpgrades, renderSteriods } from "./render.js";
+import renderItems, {
+  renderBuildings,
+  renderPassives,
+  renderPersonel,
+  renderUpgrades,
+  renderSteriods,
+  renderAchievements,
+} from "./render.js";
 import createMuscleParticles from "../particles.js";
 
 // import renderBuildings from "../components/unlocks/buildings.js";
@@ -22,6 +29,7 @@ const $mps = document.querySelector("#mps");
 const $rps = document.querySelector("#rps");
 const $upgrades = document.querySelector("#upgrades");
 const $steriods = document.querySelector("#steroids");
+const $achievements = document.querySelector("#achievements");
 
 // =========================
 // Initialization
@@ -39,6 +47,7 @@ function initializeGame() {
   renderPassives($mps, $rps);
   renderUpgrades($upgrades);
   renderSteriods($steriods);
+  renderAchievements($achievements);
 
   // passive income
   addMusclesPerSecond();

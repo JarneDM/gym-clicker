@@ -303,3 +303,7 @@ img {
   cursor: pointer;
   transition: 300ms;
 }
+
+.fade {
+  opacity: 0.5;
+}

@@ -1,9 +1,10 @@
-import items, { buildings, personel, steroids, upgrades } from "../data/data.js";
+import items, { achievements, buildings, personel, steroids, upgrades } from "../data/data.js";
 import Item from "../components/unlocks/items.js";
 import Building from "../components/unlocks/buildings.js";
 import Personel from "../components/unlocks/personel.js";
 import Upgrades from "../components/unlocks/upgrades.js";
 import Steroids from "../components/unlocks/steriods.js";
+import Achievements from "../components/unlocks/achievements.js";
 
 export default function renderItems($itemsDiv) {
   let sortedItems = [...items].sort((a, b) => a.cost - b.cost);
@@ -125,5 +126,29 @@ export function renderSteriods($steriodsDiv) {
         steroidInstance.unlock(btn);
       }
     }
+  });
+}
+
+let allAchievements = [];
+
+export function renderAchievements($div) {
+  // Clear existing content
+  $div.innerHTML = "";
+
+  // Create new achievements instances
+  allAchievements = achievements.map((a) => new Achievements("gym__achievements", a));
+
+  // Mount each achievement
+  allAchievements.forEach((a) => {
+    a.mount($div);
+  });
+
+  // Check unlocks on initial render
+  checkAllAchievements();
+}
+
+export function checkAllAchievements() {
+  allAchievements.forEach((achievement) => {
+    achievement.unlock();
   });
 }

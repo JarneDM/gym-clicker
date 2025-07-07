@@ -1,5 +1,6 @@
 const counter = document.querySelector("#counter");
 const reps = document.querySelector("#reps");
+import { checkAllAchievements } from "../core/render.js";
 
 export default function addMuscles() {
   const currentCount = parseFloat(localStorage.getItem("muscleCount") || 0);
@@ -31,6 +32,8 @@ export function addRepsPerSecond() {
 
   reps.innerText = parseFloat(newValue.toFixed(2)).toLocaleString();
   localStorage.setItem("repCount", newValue.toFixed(2));
+
+  checkAllAchievements();
 
   setTimeout(() => {
     addRepsPerSecond();

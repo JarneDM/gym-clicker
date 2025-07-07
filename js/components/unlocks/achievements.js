@@ -1,17 +1,24 @@
-import { achievements } from "../../data/data";
+import items from "../../data/data.js";
+import upgrades from "../../data/data.js";
+import buildings from "../../data/data.js";
 
 export default class Achievements {
   constructor(className, { name, condition }) {
     this.className = className;
     this.name = name;
     this.condition = condition;
+    this.element = null;
+    this.unlocked = false;
   }
 
   render() {
+    const unlockedAchievements = JSON.parse(localStorage.getItem("Achievements") || "[]");
+    this.unlocked = unlockedAchievements.includes(this.name);
+
     return `
-    <div class="${this.className}">
+      <div class="${this.className}" style="opacity: ${this.unlocked ? 1 : 0.5}">
         <div class="achievement-row">
-          <span class="achievement-name" data-achievementname="${this.name}">${this.name}</span>
+          <span class="achievement-name">${this.name}</span>
         </div>
         <div class="achievement-row">
           <span class="achievement-condition">${this.condition}</span>
@@ -20,36 +27,71 @@ export default class Achievements {
     `;
   }
 
-  unlock(name) {
-    const achievementName = name.dataset.achievementname;
-    const achievement = achievements.find((u) => u.name === achievementName);
+  mount(container) {
+    const html = this.render();
+    const template = document.createElement("template");
+    template.innerHTML = html.trim();
+    this.element = template.content.firstChild;
+    container.appendChild(this.element);
+  }
 
-    if (!achievement) return false; // Stop als achievement niet gevonden is
+  unlock() {
+    if (this.unlocked) return true;
 
-    let unlocked = false;
+    let shouldUnlock = false;
+    const reps = parseInt(localStorage.getItem("repCount") || "0");
+    const muscles = parseInt(localStorage.getItem("muscleCount") || "0");
+    const unlockedBuildings = JSON.parse(localStorage.getItem("UnlockedBuildings") || "[]");
+    const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems") || "[]");
+    const mps = parseFloat(localStorage.getItem("musclePerSecond") || "0");
+    const unlockedUpgrades = JSON.parse(localStorage.getItem("purchasedUpgrades") || "[]");
 
-    switch (achievement.name) {
+    switch (this.name) {
       case "First Rep":
-        const reps = parseInt(localStorage.getItem("repCount") || "0");
-        if (reps >= 1) {
-          achievement.unlocked = true;
-          unlocked = true;
-        }
+        shouldUnlock = reps >= 1;
         break;
-      // Voeg andere achievements hier toe
+      case "Push-up Addict":
+        shouldUnlock = reps >= 1000;
+        break;
+      case "Gym Owner":
+        shouldUnlock = unlockedBuildings.length >= 10;
+        break;
+      case "Beast Mode":
+        shouldUnlock = mps >= 1000;
+        break;
+      case "Muscle Machine":
+        shouldUnlock = muscles >= 10000000;
+        break;
+      case "Gym Bro":
+        shouldUnlock = unlockedItems.length === items.length;
+        break;
+      case "Fitness Guru":
+        shouldUnlock = unlockedUpgrades.length === upgrades.length;
+        break;
+      case "Master of Muscles":
+        shouldUnlock = mps >= 1000000;
+        break;
+      case "Ultimate Gym":
+        shouldUnlock = unlockedBuildings.length === buildings.length;
+        break;
       default:
-        console.warn(`Achievement condition not defined for: ${achievement.name}`);
         break;
     }
 
-    if (unlocked) {
-      // Opslaan dat achievement is gehaald
+    if (shouldUnlock) {
       const unlockedAchievements = JSON.parse(localStorage.getItem("Achievements") || "[]");
-      if (!unlockedAchievements.includes(achievementName)) {
-        unlockedAchievements.push(achievementName);
+      if (!unlockedAchievements.includes(this.name)) {
+        unlockedAchievements.push(this.name);
         localStorage.setItem("Achievements", JSON.stringify(unlockedAchievements));
+        this.unlocked = true;
+
+        if (this.element) {
+          this.element.style.opacity = "1";
+        }
+
+        console.log(`Unlocked achievement: ${this.name}`);
+        return true;
       }
-      return true;
     }
     return false;
   }
