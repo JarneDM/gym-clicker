@@ -1,4 +1,5 @@
 import { upgrades } from "../../data/data.js";
+import { renderPassives } from "../../core/render.js"; // Add this import
 
 export default class Upgrades {
   constructor(classname, { name, effect, cost }) {
@@ -56,6 +57,8 @@ export default class Upgrades {
 
     button.style.display = "none";
     upgrade.purchased = true;
+
+    renderPassives();
   }
 }
 
@@ -94,7 +97,8 @@ function applyUpgradeEffect(upgrade) {
 
     case "Advanced Equipment":
       const currentMPS3 = parseFloat(localStorage.getItem("musclePerSecond"));
-      const calculatedMPS3 = currentMPS3 * 0.2;
+      const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems"));
+      const calculatedMPS3 = currentMPS3 * (unlockedItems.length * 0.2);
       localStorage.setItem("musclePerSecond", currentMPS3 + calculatedMPS3);
       break;
 

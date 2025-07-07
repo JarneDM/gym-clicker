@@ -212,10 +212,10 @@ export const skills = [
 export const achievements = [
   { name: "First Rep", condition: "Earn 1 rep", unlocked: false },
   { name: "Push-up Addict", condition: "Earn 1,000 reps", unlocked: false },
+  { name: "Gym Bro", condition: "Unlock all items", unlocked: false },
   { name: "Gym Owner", condition: "Buy 10 buildings", unlocked: false },
   { name: "Beast Mode", condition: "Reach 1,000 mps", unlocked: false },
   { name: "Muscle Machine", condition: "Reach 10,000,000 muscles", unlocked: false },
-  { name: "Gym Bro", condition: "Unlock all items", unlocked: false },
   { name: "Fitness Guru", condition: "Unlock all upgrades", unlocked: false },
   { name: "Master of Muscles", condition: "Reach 1,000,000 muscles per second", unlocked: false },
   { name: "Ultimate Gym", condition: "Unlock all buildings", unlocked: false },
