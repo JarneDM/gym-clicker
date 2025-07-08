@@ -62,70 +62,77 @@ export default class Upgrades {
   }
 }
 
+// cleaning up function and fixing calculations
 function applyUpgradeEffect(upgrade) {
   switch (upgrade.name) {
-    case "Better Shoes":
-      const currentClickPower = parseFloat(localStorage.getItem("clickPower") || 1);
-      const calculatedClickPower = currentClickPower * 2;
-      localStorage.setItem("clickPower", currentClickPower + calculatedClickPower);
+    case "Better Shoes": {
+      const clickPower = parseFloat(localStorage.getItem("clickPower") || 1);
+      localStorage.setItem("clickPower", clickPower * 2);
       break;
+    }
 
-    case "Gym Membership":
-      const currentClickPower2 = parseFloat(localStorage.getItem("clickPower") || 1);
-      const calculatedCP = currentClickPower2 * 3;
-      localStorage.setItem("clickPower", currentClickPower2 + calculatedCP);
+    case "Gym Membership": {
+      const clickPower = parseFloat(localStorage.getItem("clickPower") || 1);
+      localStorage.setItem("clickPower", clickPower * 3);
       break;
+    }
 
-    case "BCAA Boost":
-      const currentMPS = parseFloat(localStorage.getItem("musclePerSecond"));
-      const calculatedMPS = currentMPS * 0.1;
-      localStorage.setItem("musclePerSecond", currentMPS + calculatedMPS);
+    case "BCAA Boost": {
+      const mps = parseFloat(localStorage.getItem("musclePerSecond") || 0);
+      localStorage.setItem("musclePerSecond", mps + mps * 0.1);
       break;
+    }
 
-    case "Advanced Program":
-      const currentRPS = parseFloat(localStorage.getItem("repsPerSecond"));
-      const unlockedBuildings = JSON.parse(localStorage.getItem("unlockedBuildings"));
-      const calculatedRPS = currentRPS * (unlockedBuildings.length * 0.05);
-      localStorage.setItem("repsPerSecond", currentRPS + calculatedRPS);
-      break;
+    case "Advanced Program": {
+      const rps = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+      const buildings = JSON.parse(localStorage.getItem("unlockedBuildings") || "[]");
 
-    case "Nutrition Plan":
-      const currentMPS2 = parseFloat(localStorage.getItem("musclePerSecond"));
-      const calculatedMPS2 = currentMPS2 * 0.1;
-      localStorage.setItem("musclePerSecond", currentMPS2 + calculatedMPS2);
-      break;
+      const newRPS = rps * (1 + buildings.length * 0.05);
 
-    case "Advanced Equipment":
-      const currentMPS3 = parseFloat(localStorage.getItem("musclePerSecond"));
-      const unlockedItems = JSON.parse(localStorage.getItem("unlockedItems"));
-      const calculatedMPS3 = currentMPS3 * (unlockedItems.length * 0.2);
-      localStorage.setItem("musclePerSecond", currentMPS3 + calculatedMPS3);
+      localStorage.setItem("repsPerSecond", newRPS);
       break;
+    }
 
-    case "Personal Trainer":
-      const currentRPS2 = parseFloat(localStorage.getItem("repsPerSecond"));
-      const currentPersonel = JSON.parse(localStorage.getItem("unlockedPersonel"));
-      const calculatedRPS2 = currentRPS2 * (currentPersonel.length * 0.5);
-      localStorage.setItem("repsPerSecond", currentRPS2 + calculatedRPS2);
+    case "Nutrition Plan": {
+      const mps = parseFloat(localStorage.getItem("musclePerSecond") || 0);
+      localStorage.setItem("musclePerSecond", mps + mps * 0.1);
       break;
+    }
 
-    case "Advanced Supplements":
-      const currentMPS4 = parseFloat(localStorage.getItem("musclePerSecond"));
-      const calculatedMPS4 = currentMPS4 * 0.3;
-      localStorage.setItem("musclePerSecond", currentMPS4 + calculatedMPS4);
-      break;
+    case "Advanced Equipment": {
+      const mps = parseFloat(localStorage.getItem("musclePerSecond") || 0);
+      const items = JSON.parse(localStorage.getItem("unlockedItems") || "[]");
 
-    case "Elite Program":
-      const currentMPS5 = parseFloat(localStorage.getItem("musclePerSecond"));
-      const calculatedMPS5 = currentMPS5 * 0.5;
-      localStorage.setItem("musclePerSecond", currentMPS5 + calculatedMPS5);
+      localStorage.setItem("musclePerSecond", mps + mps * items.length * 0.2);
       break;
+    }
 
-    case "Ultimate Equipment":
-      const currentRPS3 = parseFloat(localStorage.getItem("repsPerSecond"));
-      const unlockedBuildings2 = JSON.parse(localStorage.getItem("unlockedBuildings"));
-      const calculatedRPS3 = currentRPS3 * (unlockedBuildings2.length * 1.0); // 100% boost
-      localStorage.setItem("repsPerSecond", currentRPS3 + calculatedRPS3);
+    case "Personal Trainer": {
+      const rps = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+      const staff = JSON.parse(localStorage.getItem("unlockedPersonel") || "[]");
+
+      localStorage.setItem("repsPerSecond", rps + rps * staff.length * 0.5);
       break;
+    }
+
+    case "Advanced Supplements": {
+      const mps = parseFloat(localStorage.getItem("musclePerSecond") || 0);
+      localStorage.setItem("musclePerSecond", mps + mps * 0.3);
+      break;
+    }
+
+    case "Elite Program": {
+      const mps = parseFloat(localStorage.getItem("musclePerSecond") || 0);
+      localStorage.setItem("musclePerSecond", mps + mps * 0.5);
+      break;
+    }
+
+    case "Ultimate Equipment": {
+      const rps = parseFloat(localStorage.getItem("repsPerSecond") || 0);
+      const buildings = JSON.parse(localStorage.getItem("unlockedBuildings") || "[]");
+
+      localStorage.setItem("repsPerSecond", rps + rps * buildings.length * 1.0);
+      break;
+    }
   }
 }
